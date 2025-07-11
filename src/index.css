@@ -1,0 +1,411 @@
+/* Theme variables */
+:root {
+  --color-bg: #f5f6fa;
+  --color-text: #222;
+  --color-primary: #2563eb;
+  --color-secondary: #fbbf24;
+  --color-card: #fff;
+  --color-border: #e5e7eb;
+}
+[data-theme='dark'] {
+  --color-bg: #181c24;
+  --color-text: #f5f6fa;
+  --color-primary: #2563eb;
+  --color-secondary: #fbbf24;
+  --color-card: #23283a;
+  --color-border: #2d3347;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Add more base styles as needed */
+
+.auth-container {
+  max-width: 350px;
+  margin: 80px auto;
+  padding: 2rem 2.5rem;
+  background: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+.auth-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.auth-container input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.auth-container input:focus {
+  border: 1.5px solid var(--color-primary);
+}
+.auth-container button[type="submit"] {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-container button[type="submit"]:hover {
+  background: #1741a6;
+}
+.error-msg {
+  color: #ff4d4f;
+  background: #fff0f0;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem 0.5rem 2rem;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+.top-bar button {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.top-bar button[aria-selected='true'],
+.top-bar button.selected {
+  background: var(--color-primary);
+  color: #fff;
+}
+.top-bar .toggle-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.top-bar .profile-icon, .top-bar .profile-info {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+.top-bar .profile-info {
+  border-radius: 1.2rem;
+  padding: 0 1rem;
+  width: auto;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.top-bar button:last-child {
+  margin-right: 0;
+}
+.top-bar button.plus-btn {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.15);
+}
+
+.task-filters {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 2rem 0.5rem 2rem;
+  background: var(--color-bg);
+}
+.task-filters button {
+  background: var(--color-card);
+  border: none;
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+}
+.task-filters button.selected, .task-filters button[aria-selected='true'] {
+  background: var(--color-primary);
+  color: #fff;
+}
+.task-filters button .count {
+  background: var(--color-secondary);
+  color: #222;
+  border-radius: 999px;
+  font-size: 0.85em;
+  padding: 0.1em 0.7em;
+  margin-left: 0.5em;
+}
+
+.calendar-strip {
+  background: var(--color-card);
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.calendar-week {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-week > div {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: none;
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+.calendar-week > div.selected {
+  background: var(--color-primary);
+  color: #fff;
+}
+.calendar-week > div.today {
+  background: #fbbf24;
+  color: #222;
+}
+
+.day-schedule {
+  padding: 2rem;
+}
+.day-schedule h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.hourly-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hour-slot {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  padding: 0.7rem 1.5rem;
+  min-height: 3.2rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+/* Modal styles for TaskModal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-card {
+  background: var(--color-card);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  min-width: 340px;
+  max-width: 95vw;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.modal-form input, .modal-form textarea, .modal-form select {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.modal-form input:focus, .modal-form textarea:focus, .modal-form select:focus {
+  border: 1.5px solid var(--color-primary);
+}
+.modal-form button[type="submit"] {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-form button[type="submit"]:hover {
+  background: #1741a6;
+}
+
+/* Custom react-calendar styles for dark/light theme */
+.react-calendar {
+  background: var(--color-card);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  color: var(--color-text);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.react-calendar__navigation button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+.react-calendar__navigation button:enabled:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.react-calendar__tile {
+  background: none;
+  border: none;
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: 1rem;
+  padding: 0.5rem 0.2rem;
+  margin: 0.1rem 0.2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: var(--color-primary);
+  color: #fff;
+}
+.react-calendar__tile--now,
+.react-calendar__tile.today {
+  background: var(--color-secondary) !important;
+  color: #222 !important;
+}
+.react-calendar__tile.selected {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+.react-calendar__tile--active {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #888;
+  opacity: 0.5;
+}
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd,
+.react-calendar__tile--rangeBothEnds {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+/* Make react-select multi-value wrap to new lines */
+.react-select__control {
+  flex-wrap: wrap !important;
+  min-height: 44px;
+  max-width: 100%;
+}
+
+/* Stack react-select multi-value tags vertically (one per line) */
+.react-select__value-container {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 4px;
+  min-height: 44px;
+  max-width: 100%;
+  padding-bottom: 4px;
+}
+
+.react-select__multi-value {
+  margin: 0 !important;
+  width: 100%;
+}
