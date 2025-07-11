@@ -51,6 +51,12 @@ const Login = () => {
                 <button type="submit">Login</button>
                 {error && <div className="error-msg">{error}</div>}
             </form>
+            <div style={{ marginTop: '1.2rem', textAlign: 'center' }}>
+                <span>Don't have an account? </span>
+                <a href="/register" style={{ color: 'var(--color-primary)', textDecoration: 'underline', cursor: 'pointer' }}>
+                    Register here
+                </a>
+            </div>
         </div>
     );
 };
